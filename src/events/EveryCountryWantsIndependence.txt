@@ -1,0 +1,46 @@
+add_namespace = ecwi
+#Independence
+country_event = {
+	id = ecwi.1
+	title = ecwi.1.t
+	desc = ecwi.1.d
+	picture = "Memel"
+	trigger = {
+		compare_autonomy_progress_ratio > 0.999
+		compare_autonomy_state = autonomy_dominion
+	}
+	mean_time_to_happen = {
+		days = 0
+	}
+	option = {
+		name = ecwi.1.a
+		OVERLORD = {
+			set_autonomy = {
+				target = ROOT
+				autonomy_state = autonomy_free
+			}
+		}
+		remove_from_faction = ROOT
+	}
+}
+
+#LeaveFaction
+country_event = {
+	id = ecwi.2
+	title = ecwi.2.t
+	desc = ecwi.2.d
+	picture = "Memel"
+	hidden = yes
+	trigger = {
+		date > 1945.1.1
+		is_ai = yes
+		is_in_faction = yes
+		has_war = no
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		remove_from_faction = ROOT
+	}
+}
